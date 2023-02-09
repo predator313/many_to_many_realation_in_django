@@ -6,3 +6,6 @@ class Song(models.Model):
     user=models.ManyToManyField(User)
     name=models.CharField(max_length=30)
     duration=models.IntegerField()
+    def written_by(self):
+        return ','.join([str(p)for p in self.user.all()])
+
